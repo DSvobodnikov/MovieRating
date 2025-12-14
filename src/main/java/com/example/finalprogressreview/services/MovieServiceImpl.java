@@ -1,9 +1,10 @@
 package com.example.finalprogressreview.services;
 
 import com.example.finalprogressreview.models.Movie;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class MovieServiceImpl implements  MovieService {
 
 

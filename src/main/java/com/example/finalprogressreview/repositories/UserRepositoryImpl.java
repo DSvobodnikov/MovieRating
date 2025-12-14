@@ -22,7 +22,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> get() {
-        try (Session session = sessionFactory.openSession()) {
+        try (Session session = this.sessionFactory.openSession()) {
             Query<User> query = session.createQuery("from User", User.class);
             return query.list();
         }
@@ -56,7 +56,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void create(User user) {
-        try (Session session = sessionFactory.openSession()) {
+        try (Session session = this.sessionFactory.openSession()) {
             session.beginTransaction();
             session.persist(user);
             session.getTransaction().commit();
@@ -65,7 +65,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void update(User user) {
-        try (Session session = sessionFactory.openSession()) {
+        try (Session session = this.sessionFactory.openSession()) {
             session.beginTransaction();
             session.merge(user);
             session.getTransaction().commit();
