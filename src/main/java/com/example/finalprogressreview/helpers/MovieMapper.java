@@ -16,5 +16,13 @@ public class MovieMapper{
         return movie;
     }
 
-    public MovieDto from(Movie movie) {}
+    public MovieDto toDto(Movie movie) {
+        MovieDto dto = new MovieDto();
+        dto.setId(movie.getId());
+        dto.setTitle(movie.getTitle());
+        dto.setDirector(movie.getDirector());
+        dto.setReleaseYear(movie.getReleaseYear());
+        dto.setRating((int) movie.getRating());
+        return dto;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.finalprogressreview.repositories;
 
+import com.example.finalprogressreview.exceptions.EntityNotFoundException;
 import com.example.finalprogressreview.models.Movie;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,6 +31,9 @@ public class MovieRepositoryImpl implements MovieRepository {
     public Movie get(int id) {
         try (Session session = this.sessionFactory.openSession()) {
             Movie movie = session.find(Movie.class, id);
+            if (movie == null) {
+                throw new EntityNotFoundException("Movie", id);
+            }
             return movie;
         }
     }

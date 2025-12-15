@@ -54,7 +54,7 @@ public class Movie {
         return releaseYear;
     }
 
-    public double getRating() {
+    public int getRating() {
         return rating;
     }
 
